@@ -14,42 +14,17 @@ Stones::Stones()
 {
     // set up the parameters of the stones
     sides = 4;
-    numStones = 4;
-
-    // set up the array of stones (values)
-    stones = new int[numStones];
 }
 
-/**
- * @brief Destroy the Stones:: Stones object
- * 
- */
-Stones::~Stones()
-{
-    if (stones != nullptr)
-        delete [] stones;
-}
 
 /**
- * @brief Roll one of the stones
+ * @brief Randomize the value of the stone.
+ *          Uses Mersenne Twister 19937 to randomly
+ *          generate a random value for the stone.
  * 
- * @param index The stone to be rolled
  */
-void Stones::rollOneStone(const int index)
+void Stones::roll()
 {
-    // check for invalid bounds
-    if (index < 0)
-    {
-        cout << "Amount of stones rolled must be at least 1\n";
-        exit(101);
-    }
-
-    if (index >= numStones)
-    {
-        cout << "Amount of stones must not be more than the current max (" << numStones << ")\n";
-        exit (102);
-    }
-    
     // set up random number generation using mersenne twister 19937
     double seed = seed = chrono::high_resolution_clock::now().time_since_epoch().count();
     mt19937 mt(seed);
@@ -58,41 +33,17 @@ void Stones::rollOneStone(const int index)
     uniform_int_distribution<int> distr(1, sides);
 
     // get a random value and set the new value to the stone
-    stones[index] = distr(mt);
+    value = distr(mt);
 }
 
 /**
- * @brief Roll all of the stones.
- *          Generates a random value between 1 and $sides
- *          (inclusive) for every stone the player currently
- *          has in their hand.
+ * @brief Returns the value of one stone in the player's hand.
  * 
+ * @param index The index of the stone whose value is being returned.
+ * @return int  The value of the desired stone.
  */
-void Stones::roll()
+unsigned short int Stones::getValue()
 {
-    for (int i = 0; i < numStones; ++i)
-        rollOneStone(i);
+    return value;
 }
-
-/**
- * @brief Decriments the amount of stones the player has
- *          by one.
- * 
- * @return int The new number of stones the player has.
- *              Used to determine if they should lose the
- *              game or not.
- */
-int Stones::loseStone()
-{
-    --numStones;
-    return numStones;    
-}
-
-
-int getOneStone(const int index)
-{
-    
-}
-
-
 

@@ -2,27 +2,20 @@
 #ifndef __STONE_H
 #define __STONE__H
 
+#include <vector>
+
 class Stones
 {
 private:
-    int* stones;    // the values obtained from rolling the stones
-    int sides;      // how many sides the stones will have (default 4)
-    int numStones;  // how many stones the player has
+    unsigned short int value;   // the value the stone was rolled to
+    unsigned short int sides;   // how many sides the stones will have (default 4)
 
 public:
-    Stones();
-    ~Stones();
+    Stones();   // default constructor
 
-    void rollOneStone(const int indexOfStone);  // randomize the value of one stone 
-    void roll();                                // randomize the values of all the stones
-
-    int loseStone();   // decriments the amount of stones the player has
-
-    int  getOneStone(const int indexOfStone);   // returns the value of one specified stone
-    int* getAllValues();                        // returns all of the values of the stones
-
-    void printAllStones();  // prints the results of all the stones
+    void roll();                    // randomize the value of the stone
+    short unsigned int  getValue(); // returns all of the values of the stones
+    void printStone();              // prints the results of all the stones
 };
-
 
 #endif
