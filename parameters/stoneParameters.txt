@@ -1,0 +1,3 @@
+4
+
+1   | Number of sides per stone | X > 1
