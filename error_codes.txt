@@ -1,0 +1,7 @@
+
+101 | Too few stones rolled     | Stones.cpp    | rollOne
+102 | Too many stones rolled    | Stones.cpp    | rollOne
+
+
+
+
