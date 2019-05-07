@@ -1,6 +1,16 @@
 
-101 | Too few stones rolled     | Stones.cpp    | rollOne
-102 | Too many stones rolled    | Stones.cpp    | rollOne
+10: Decrimenting a hand with 0 stones
+    Hand.cpp
+        decrimentHandSize()
+
+11: Trying to get number of sides from an uncronstructed Stones object
+    Hand.cpp
+        getStoneSize()
+        
+
+20: Retreiving duplicates of a stone's value that is higher than what exists
+    Player.cpp
+        getDuplicates(const int index)
 
 
 
