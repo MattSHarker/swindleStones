@@ -1,10 +1,9 @@
 
-#include <iostream>
 #include <random>
 
 #include "Stone.h"
 
-using namespace std;
+// using namespace std;
 
 /**
  * @brief Construct a new Stones:: Stones object
@@ -42,8 +41,15 @@ void Stones::roll()
  * @param index The index of the stone whose value is being returned.
  * @return int  The value of the desired stone.
  */
-unsigned short int Stones::getValue()
+int Stones::getValue()
 {
     return value;
 }
+
+
+int Stones::getSides()
+{
+    return size;
+}
+
 
